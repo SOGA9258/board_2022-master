@@ -19,9 +19,6 @@
                 <a class="navbar-brand" href="/">메인</a>
                 <a class="navbar-brand" href="/boards">자유뭐시기</a>
                 <a class="btn btn-primary" href="/auth/signIn" style="background-color: #6A24FE; border-color: #6A24FE;">Sign In</a>
-
-
-
             </div>
 
 

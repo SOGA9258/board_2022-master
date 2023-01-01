@@ -82,10 +82,10 @@
 <div class="login-wrapper" style="margin-left: auto; margin-right: auto; margin-top: 120px; border: ridge;">
     <h2>글쓰기</h2>
     <form method="post" action="" id="signForm">
-        <input type="text" id="memberId" name="memberId" placeholder="아이디">
-        <input type="password" id="password" name="password" placeholder="비밀번호">
-        <input type="checkPassword" id="checkPassword" placeholder="비밀번호 확인">
-        <input type="text" id="name" name="name" placeholder="이름">
+        <label>제목</label>
+        <input type="text" id="title" name="title">
+        <label>내용</label>
+        <input type="textarea" id="content" name="content" style="height: 120px">
 
         <input type="button" onclick="alert('저장!!!'); return false;" value="등록">
     </form>
