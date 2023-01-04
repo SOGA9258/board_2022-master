@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 <style>
     *{
         padding: 0;
@@ -81,19 +82,48 @@
 </nav>
 <div class="login-wrapper" style="margin-left: auto; margin-right: auto; margin-top: 120px; border: ridge;">
     <h2>글쓰기</h2>
-    <form method="post" action="" id="signForm">
+    <form method="post" action="/board/write" id="signForm">
         <label>제목</label>
         <input type="text" id="title" name="title">
         <label>내용</label>
         <input type="textarea" id="content" name="content" style="height: 120px">
 
-        <input type="button" onclick="alert('저장!!!'); return false;" value="등록">
+        <input type="button" onclick="writeForm(); return false;" value="등록">
     </form>
 </div>
 </body>
 <script>
-    const write = () => {
-        alert('저장!!!');
+    var writeForm = () => {
+        let title = $('#title').val();
+        let content = $('#content').val();
+
+
+        var data = {
+            'title' : title
+            ,'content' : content
+        };
+
+
+        $.ajax ({
+            type : "POST",
+            url : '/board/write', //해당 ajax연결
+            dataType : 'json',
+            data : data,
+            success : function(data) {
+                alert(data.message);
+                return false;
+            }
+            ,fail : function(data) {
+                alert('fail 오류가 발생했습니다.');
+                return false;
+            }
+            ,error : function() {
+                alert('error 오류가 발생했습니다.');
+                return false;
+            }
+        });
+
+
     }
 
 </script>
